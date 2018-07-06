@@ -1,0 +1,18 @@
+﻿@model System.Diagnostics.Process
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+@this.Model.ProcessName - (@this.Model.Id)<br />
+@try
+{
+    this.Model.TotalProcessorTime.ToString();
+}
+catch (Exception e)
+{
+    <div>There was an error with accessing TotalProcesserTime<br />
+    @e.HResult<br />
+    @e.InnerException</div>
+}
